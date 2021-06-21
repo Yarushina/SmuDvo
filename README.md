@@ -1,6 +1,6 @@
 # SmuDvo
 ---
-##### For run server install config.ini to root 
+##### For run server install config.ini to the root directory 
 *After the do the next steps:*
 - chmod +x run.sh
 - ./run.sh
