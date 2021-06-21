@@ -1,0 +1,60 @@
+{% extends "poll/base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Available Polls</h3>
+            </div>
+
+        <ul class="list-group">
+            {% if user.profile.scientist == True %}
+                {% for poll in polls %}
+                    <li class="list-group-item">
+                        <a style="display: block" href="{% url "PollPage" poll.id %}" class="btn btn-default btn-xs"><strong>{{ poll.title }}</strong></a>
+{#                        <strong>{{ poll.title }}</strong>#}
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+
+
+
+{#        <ul class="list-group">#}
+{#            {% if user.profile.scientist == True %}#}
+{#                {% for poll in polls %}#}
+{#                    <li class="list-group-item">#}
+{#                        <strong>{{ poll.title }}</strong>#}
+{#                        <span class="pull-right">#}
+{#                            {% if not user.is_superuser %}#}
+{#                                <a style="display: block" href="{% url 'vote' poll.id %}" class="btn btn-info btn-xs">Проголосовать</a> &nbsp;#}
+{#                                <a href="{% url 'results' poll.id %}" class="btn btn-default btn-xs">Показать результаты</a>#}
+{#                            {% endif %}#}
+{#                        </span>#}
+{#                    </li>#}
+{#                    <br>#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
+{#        </ul>#}
+{#        <ul class="list-group">#}
+{#        {% if user.is_superuser %}#}
+{#            {% for poll in polls %}#}
+{#                <li class="list-group-item">#}
+{#                    <strong>{{ poll.title }}</strong>#}
+{#                    <span class="pull-right">#}
+{#                        <a href="{% url 'results' poll.id %}" class="btn btn-outline-primary">Показать результаты</a> &nbsp;#}
+{#                        <a href="{% url 'delete' poll.id %}" class="btn btn-default btn-xs">Удалить опрос</a>#}
+{#                    </span>#}
+{#                </li>#}
+{#                <br>#}
+{#                     </li>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{#        </ul>#}
+        </div>
+    </div>
+</div>
+{% endblock %}
