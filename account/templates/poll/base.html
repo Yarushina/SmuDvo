@@ -30,7 +30,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="http://127.0.0.1:8000/">Совет молодых ученых ДВО РАН</a></li>
+                        <li><a href="{% url 'main' %}">Совет молодых ученых ДВО РАН</a></li>
 {#                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#}
                         {% if user.is_superuser %}
                         <li><a href="{% url 'create' %}">Создать опрос</a></li>

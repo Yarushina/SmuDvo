@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', index),
+    path('', index, name='main'),
     path('newsPage/<int:news_id>', views.newsPage, name='newsPage'),
     path('PollPage/<int:polls_id>', views.PollPage, name='PollPage'),
 
