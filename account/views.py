@@ -93,13 +93,15 @@ def post_email(request):
         form = EmailPostForm(request.POST, request.FILES)
         if form.is_valid():
             subject = form.cleaned_data['title']
-            sender = settings.EMAIL_HOST_USER
             recipients = form.cleaned_data['to']
             message = form.cleaned_data['text']
             if request.FILES:
                 uploaded_file = request.FILES['file']
             try:
-                email = EmailMessage(subject, message, sender, recipients)
+                theme = subject
+
+                email = EmailMessage(theme, message, settings.EMAIL_HOST_USER, [recipients])
+
                 email.attach(uploaded_file.name, uploaded_file.read(), uploaded_file.content_type)
                 email.send()
                 messages.success(request, 'Письма успешно отправлены')
